@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<!-- saved from url=(0076)file:///C:/Users/drsab/Downloads/SLEEP%20DEPRIVATION%20&%20OVERTHINKING.html -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-<title>SLEEP DEPRIVATION &amp; OVERTHINKING</title>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SLEEP DEPRIVATION & OVERTHINKING</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- Google Fonts for modern readability -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
@@ -17,10 +16,9 @@ body {
     color: #f0f0f0;
     overflow: hidden;
     background: #050505;
-    text-shadow: none; /* Removed glow for better readability */
 }
 
-/* STARS BACKGROUND */
+/* STARS */
 .stars {
     position: fixed;
     width: 200%;
@@ -49,7 +47,7 @@ body {
     background-size: cover; background-position: center;
 }
 
-/* NAVIGATION */
+/* NAV */
 nav {
     position: fixed; top: 0; width: 100%;
     background: rgba(0,0,0,0.9);
@@ -60,337 +58,98 @@ nav {
 nav button {
     padding: 12px 24px; margin: 0 6px;
     border-radius: 25px; border: 1px solid rgba(255,0,0,0.4);
-    color: #f0f0f0; font-family: "Inter", sans-serif;
+    color: #f0f0f0;
     background: rgba(30,0,0,0.7);
-    cursor: pointer; font-size: 15px; font-weight: 500;
-    transition: 0.4s ease;
+    cursor: pointer;
 }
 
 nav button.active {
     background: #ff0000;
-    box-shadow: 0 0 20px rgba(255,0,0,0.6);
-    transform: scale(1.05);
 }
 
-/* CONTAINER & PAGES */
+/* PAGES */
 .container {
     display: flex; width: 800vw; height: 100vh;
-    transition: transform 1s cubic-bezier(0.65, 0, 0.35, 1);
+    transition: transform 1s;
 }
 
 .page {
     width: 100vw; height: 100vh;
     display: flex; flex-direction: column;
     justify-content: center; align-items: center;
-    text-align: center; padding: 100px 40px 40px;
-    box-sizing: border-box;
-    transition: opacity 0.8s;
+    text-align: center; padding: 100px 40px;
 }
 
 .page.inactive { opacity: 0.1; }
 
-h1 {
-    font-size: clamp(32px, 7vw, 60px);
-    color: #ff4d4d;
-    text-shadow: 0 0 10px red, 0 0 30px red;
-    font-weight: 700;
+h1 { color: #ff4d4d; font-size: 50px; }
+h2 { color: #fff; }
+
+/* TIPS */
+.tipsContainer {
+    text-align: left;
+    background: rgba(20,20,20,0.95);
+    padding: 40px;
+    border-radius: 25px;
+    max-width: 600px;
 }
 
-h2 {
-    font-weight: 600;
-    color: #ffffff;
+/* SHEEP */
+.sheepGif {
+    width: 300px;
+    border-radius: 20px;
     margin-bottom: 20px;
 }
 
-/* CARDS - Improved readability */
-.cards {
-    display: flex; gap: 25px; flex-wrap: wrap;
-    justify-content: center; margin-top: 30px;
-}
-
-.card {
-    background: rgba(20,20,20,0.9);
-    border: 1px solid rgba(255,0,0,0.3);
-    padding: 30px; width: 300px;
-    border-radius: 20px; cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    display: flex; flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-}
-
-.card:hover { 
-    border-color: #ff4444; 
-    transform: translateY(-8px);
-    box-shadow: 0 8px 30px rgba(255,68,68,0.3);
-}
-
-.card.open {
-    border-color: #ff0000;
-    box-shadow: 0 0 25px rgba(255, 0, 0, 0.4), inset 0 0 10px rgba(255, 0, 0, 0.1);
-    background: rgba(40,10,10,0.6);
-    cursor: default;
-}
-
-.card h3 { 
-    margin: 0 0 15px 0; 
-    color: #ff6666; 
-    font-size: 22px; 
-    font-weight: 600;
-    text-align: center;
-}
-
-.cardContent {
-    max-height: 0; opacity: 0; overflow: hidden;
-    transition: all 0.5s ease; font-size: 16px;
-    color: #e0e0e0; text-align: left; /* Left align for better reading */
-}
-
-.card.open .cardContent {
-    max-height: 220px; opacity: 1; margin-top: 20px;
-}
-
-/* SLEEP TIPS STYLE - Major readability improvements */
-.tipsContainer {
-    text-align: left; 
-    background: rgba(20,20,20,0.95); 
-    padding: 40px; 
-    border-radius: 25px; 
-    border: 1px solid rgba(255,77,77,0.4); 
-    max-width: 600px;
-    font-family: "Inter", sans-serif;
-    text-shadow: none;
-    box-shadow: 0 8px 40px rgba(0,0,0,0.6);
-}
-
-.tipsContainer p {
-    margin: 0 0 18px 0;
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 1.6;
-}
-
-.tipsContainer strong {
-    color: #ff4d4d;
-    font-weight: 600;
-}
-
-/* BREATHING SECTION */
-.breathLayout {
-    display: flex; gap: 120px; flex-wrap: wrap;
-    align-items: center; justify-content: center;
-}
-
-.circle {
-    width: 100px; height: 100px;
-    border-radius: 50%; border: 3px solid #ff4d4d;
-    background: rgba(255,77,77,0.1);
-    box-shadow: 0 0 40px rgba(255,0,0,0.5);
-    animation: breathe 16s infinite ease-in-out;
-}
-
-@keyframes breathe {
-    0%, 100% { transform: scale(1); }
-    25%, 50% { transform: scale(2.6); }
-    75% { transform: scale(1); }
-}
-
-/* COUNTING PAGE */
-.sheepGif {
-    width: 300px; border-radius: 20px;
-    border: 2px solid #ff4d4d;
-    box-shadow: 0 8px 30px rgba(255,0,0,0.3);
-    margin-bottom: 25px;
-}
-
 .sheepCounter {
-    font-size: 52px; color: #ff4d4d; font-weight: 700;
-    margin: 15px 0; text-shadow: 0 0 15px red;
-}
-
-/* SIMULATOR */
-.simContainer {
-    background: rgba(20,20,20,0.95);
-    padding: 45px; border-radius: 25px;
-    border: 1px solid #ff4444; width: 500px; min-height: 380px;
-    display: flex; flex-direction: column; justify-content: space-between;
-    box-shadow: 0 10px 50px rgba(0,0,0,0.7);
-}
-
-#thought { 
-    font-size: 20px; 
-    color: #ff8888; 
-    min-height: 70px; 
-    display: flex; align-items: center; 
-    justify-content: center;
-    font-weight: 500;
-    line-height: 1.5;
-}
-
-#solutionBox {
-    margin-top: 25px; padding: 20px; border-radius: 15px;
-    background: rgba(0,255,100,0.08); border: 1px solid rgba(0,255,100,0.3);
-    opacity: 0; transition: opacity 1s;
-}
-
-#solutionBox p {
-    margin: 0;
-    color: #88ffaa; font-style: italic; font-size: 17px;
-}
-
-.triggerBox {
-    background: rgba(20,20,20,0.9); 
-    border: 1px solid #ff4444; 
-    padding: 20px 45px; 
-    border-radius: 40px; 
-    margin-top: 45px; 
-    font-size: 24px; 
-    color: #ff4d4d; 
-    box-shadow: 0 8px 30px rgba(255,0,0,0.3);
-    font-weight: 600;
-}
-
-/* Responsive improvements */
-@media (max-width: 768px) {
-    .page { padding: 100px 20px 40px; }
-    .tipsContainer { padding: 30px; max-width: 90%; font-size: 16px; }
-    .card { width: 90%; max-width: 350px; }
-    .breathLayout { gap: 40px; }
-    nav button { padding: 10px 18px; font-size: 14px; }
+    font-size: 50px;
+    color: #ff4d4d;
 }
 </style>
 </head>
+
 <body>
 
 <div class="stars"></div>
 
 <nav>
-    <button onclick="go(0)" class="">Home</button>
-    <button onclick="go(1)" class="">About</button>
-    <button onclick="go(2)" class="">Insomnia</button>
-    <button onclick="go(3)" class="">Effects</button>
-    <button onclick="go(4)" class="">Sleep Tips</button>
-    <button onclick="go(5)" class="active">Breathing</button>
-    <button onclick="go(6)" class="">Counting</button>
-    <button onclick="go(7)" class="">Simulator</button>
+<button onclick="go(0)">Home</button>
+<button onclick="go(1)">About</button>
+<button onclick="go(2)">Insomnia</button>
+<button onclick="go(3)">Effects</button>
+<button onclick="go(4)">Sleep Tips</button>
+<button onclick="go(5)">Breathing</button>
+<button onclick="go(6)">Counting</button>
+<button onclick="go(7)">Simulator</button>
 </nav>
 
-<div class="container" id="container" style="transform: translateX(-500vw);">
+<div class="container" id="container">
 
-    <div class="page homePage inactive">
-        <h1>SLEEP DEPRIVATION &amp; OVERTHINKING</h1>
-        <h2>The Night That Never Ends</h2>
-        <p>A quiet room is often the loudest place for a restless mind.</p>
-    </div>
+<div class="page homePage">
+<h1>SLEEP DEPRIVATION & OVERTHINKING</h1>
+<h2>The Night That Never Ends</h2>
+</div>
 
-    <div class="page normalPage inactive">
-        <h2>Why Your Mind Stays Awake</h2>
-        <div class="cards">
-            <div class="card open" onclick="openCard(this)">
-                <h3>No Distractions</h3>
-                <div class="cardContent">In the day, work and noise mask your anxiety. In the dark, your brain has nothing to do but listen to its own worries.</div>
-            </div>
-            <div class="card open" onclick="openCard(this)">
-                <h3>The Fear Loop</h3>
-                <div class="cardContent">The more you worry about not sleeping, the more stress hormones you create, physically forcing you to stay awake.</div>
-            </div>
-            <div class="card open" onclick="openCard(this)">
-                <h3>Mental Time Travel</h3>
-                <div class="cardContent">Your brain enters "idle mode," leading you to obsess over past mistakes or fears about the future.</div>
-            </div>
-        </div>
-    </div>
+<div class="page normalPage">
+<h2>Sleep Tips</h2>
+<div class="tipsContainer">
+<p>🌙 Keep room dark</p>
+<p>📵 No screens before bed</p>
+<p>📓 Write your thoughts</p>
+</div>
+</div>
 
-    <div class="page normalPage inactive">
-        <h2>Deep Dive: Insomnia</h2>
-        <div class="cards">
-            <div class="card open" onclick="openCard(this)">
-                <h3>Onset Insomnia</h3>
-                <div class="cardContent">The struggle to fall asleep initially. Often caused by "Racing Brain Syndrome" where thoughts move too fast to rest.</div>
-            </div>
-            <div class="card open" onclick="openCard(this)">
-                <h3>Maintenance</h3>
-                <div class="cardContent">Waking up in the middle of the night (often 3 AM) and being unable to return to sleep due to sudden alertness.</div>
-            </div>
-            <div class="card open" onclick="openCard(this)">
-                <h3>Conditioned Response</h3>
-                <div class="cardContent">Your brain learns to see the bed as a place of frustration, triggering wakefulness automatically.</div>
-            </div>
-        </div>
-        <div class="triggerBox" id="cause">Trigger: Caffeine</div>
-    </div>
+<!-- ✅ FIXED SHEEP SECTION -->
+<div class="page normalPage">
+<h2>Count the Sheep</h2>
 
-    <div class="page normalPage inactive">
-        <h2>The Toll on the Body</h2>
-        <div class="cards">
-            <div class="card open" onclick="openCard(this)">
-                <h3>Mental Fog</h3>
-                <div class="cardContent">Your logic center slows down, making you irritable and unable to make simple decisions or focus.</div>
-            </div>
-            <div class="card open" onclick="openCard(this)">
-                <h3>Emotional Swings</h3>
-                <div class="cardContent">The brain's emotion center becomes hyper-reactive, causing intense sadness or anger over small things.</div>
-            </div>
-            <div class="card open" onclick="openCard(this)">
-                <h3>Microsleeps</h3>
-                <div class="cardContent">Your brain shuts off for seconds at a time while you are awake. A sign of extreme exhaustion.</div>
-            </div>
-        </div>
-    </div>
+<img class="sheepGif" src="sheep.gif" alt="Sheep gif">
 
-    <div class="page normalPage inactive">
-        <h2>For better sleep :</h2>
-        <div class="tipsContainer">
-            <p>🌙 <strong>Cold Darkness:</strong> Keep the room pitch black and below 19°C.</p>
-            <p>📵 <strong>Digital Sunset:</strong> No screens 60 minutes before lying down.</p>
-            <p>📓 <strong>Brain Dumping:</strong> Write your worries on paper to "offload" them.</p>
-            <p>🐑 <strong>Mental Counting:</strong> Count backwards from 1,000 by 7s to tire the logic brain.</p>
-            <p>☕ <strong>Caffeine Rule:</strong> Avoid all caffeine after 2:00 PM.</p>
-            <p>🚶 <strong>Daylight:</strong> Get 15 minutes of sunlight in the morning to reset your clock.</p>
-            <p>🛏 <strong>20-Minute Rule:</strong> If you can't sleep in 20 mins, leave the bed and do a boring task.</p>
-            <p>🛁 <strong>Warm Bath:</strong> A bath 1 hour before bed helps your core temperature drop.</p>
-        </div>
-    </div>
+<div class="sheepCounter" id="sheepVal">0</div>
 
-    <div class="page normalPage">
-        <h2>Regulate Your System</h2>
-        <div class="breathLayout">
-            <div style="background: rgba(20,20,20,0.9); padding: 40px; border-radius: 25px; border: 1px solid rgba(255,0,0,0.4); min-width: 300px; box-shadow: 0 8px 30px rgba(0,0,0,0.5);">
-                <h3 id="breathText" style="color:#ff4d4d; margin-bottom:15px; font-weight: 600;">Exhale Slowly</h3>
-                <p style="font-size: 17px; line-height: 1.6;">Follow the circle to reset your nervous system.</p>
-            </div>
-            <div class="circle"></div>
-        </div>
-    </div>
+<button onclick="countSheep()">Click to Count</button>
 
-    <div class="page normalPage inactive">
-        <h2>Count the Sheep</h2>
-        <img class="sheepGif" src="./The_Midnight_Minds_files/c929b648644577.589d80e9e5b41.gif" alt="Sheep gif">
-        <div class="sheepCounter" id="sheepVal">3</div>
-        <button onclick="countSheep()" style="background:transparent; color:#f0f0f0; border:2px solid #ff4d4d; padding:12px 35px; border-radius:30px; cursor:pointer; font-family:'Inter', sans-serif; font-size:19px; font-weight: 500; transition: all 0.3s; margin: 20px 0;">
-            Click to Count
-        </button>
-        <p style="margin-top:25px; font-style:italic; opacity:0.8; font-size: 17px;">Focus only on the rhythm...</p>
-    </div>
-
-    <div class="page normalPage inactive">
-        <h2>The Overthinking Simulator</h2>
-        <div class="simContainer">
-            <button onclick="thought()" style="background:linear-gradient(145deg, #ff0000, #cc0000); color:#f0f0f0; border:none; padding:18px 35px; border-radius:30px; cursor:pointer; font-weight:600; letter-spacing:1.2px; font-family: 'Inter', sans-serif; font-size: 16px; box-shadow: 0 6px 20px rgba(255,0,0,0.4); transition: all 0.3s;">
-                GENERATE INTRUSIVE THOUGHT
-            </button>
-            <div style="margin-top:30px;">
-                <p id="thought">I'll be so tired tomorrow, I'll ruin my day.</p>
-            </div>
-            <div id="solutionBox">
-                <p style="color: #88ffaa; font-style: italic; margin:0;">
-                    <span style="font-weight: 700; color: #00ff88;">Reality Check:</span> <span id="solutionText">The human body is resilient. You've handled tired days before, and you'll handle tomorrow too.</span>
-                </p>
-            </div>
-        </div>
-    </div>
+</div>
 
 </div>
 
@@ -398,68 +157,15 @@ h2 {
 let sheepCount = 0;
 
 function go(index){
-    const container = document.getElementById("container");
-    container.style.transform = `translateX(-${index * 100}vw)`;
-    document.querySelectorAll(".page").forEach((p, i) => p.classList.toggle("inactive", i !== index));
-    document.querySelectorAll("nav button").forEach((b, i) => b.classList.toggle("active", i === index));
+document.getElementById("container").style.transform =
+`translateX(-${index * 100}vw)`;
 }
 
-function openCard(card){ card.classList.add("open"); }
-
-function countSheep() {
-    sheepCount++;
-    document.getElementById("sheepVal").innerText = sheepCount;
-}
-
-// CAUSES LOOP
-const causes = ["Anxiety", "Blue Light", "Caffeine", "Social Stress", "Silent Room", "Cortisol Spike"];
-let cI = 0;
-setInterval(() => {
-    const el = document.getElementById("cause");
-    if(el) { el.innerText = "Trigger: " + causes[cI]; cI = (cI + 1) % causes.length; }
-}, 2000);
-
-// BREATHING LOOP
-const steps = ["Inhale Slowly", "Hold...", "Exhale Slowly", "Hold..."];
-let bI = 0;
-setInterval(() => {
-    const el = document.getElementById("breathText");
-    if(el) { el.innerText = steps[bI]; bI = (bI + 1) % steps.length; }
-}, 4000);
-
-// SIMULATOR DATA
-const spiralData = [
-    { thought: "Did I say something offensive earlier?", solution: "If they were truly upset, they would have said something. You are over-analyzing a moment they likely forgot." },
-    { thought: "I have so much to do and zero energy.", solution: "You cannot finish tomorrow's work tonight. Sleep is the most productive thing you can do right now to gain energy." },
-    { thought: "What if I'm failing at everything?", solution: "Failure is a feeling, not a fact. Look at how far you've come; exhaustion is just lying to you right now." },
-    { thought: "I'll be so tired tomorrow, I'll ruin my day.", solution: "The human body is resilient. You've handled tired days before, and you'll handle tomorrow too." },
-    { thought: "Why did I start thinking about this now?", solution: "Because the world is quiet. This isn't an emergency; it's just your brain's idle mode. It can wait until morning." }
-];
-
-function thought(){
-    const thoughtElement = document.getElementById("thought");
-    const solutionBox = document.getElementById("solutionBox");
-    const solutionText = document.getElementById("solutionText");
-    const selected = spiralData[Math.floor(Math.random() * spiralData.length)];
-    
-    if(window.tInt) clearInterval(window.tInt);
-    solutionBox.style.opacity = "0";
-    thoughtElement.innerHTML = "";
-    
-    let i = 0;
-    window.tInt = setInterval(() => {
-        if(i < selected.thought.length) {
-            thoughtElement.innerHTML += selected.thought.charAt(i);
-            i++;
-        } else {
-            clearInterval(window.tInt);
-            setTimeout(() => {
-                solutionText.innerText = selected.solution;
-                solutionBox.style.opacity = "1";
-            }, 500);
-        }
-    }, 40);
+function countSheep(){
+sheepCount++;
+document.getElementById("sheepVal").innerText = sheepCount;
 }
 </script>
 
-</body></html>
+</body>
+</html>
